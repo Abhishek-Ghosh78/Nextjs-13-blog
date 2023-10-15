@@ -1,27 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Dosis", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: "Courier New", Courier, monospace;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+  margin: 10px;
+}
+
+u {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+/*
+img {
+  width: 20vw;
+  margin: auto;
+  margin-top: 40px;
+}
+*/
+@media screen and (max-width: 500px) {
+  img {
+    width: 70vw;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
