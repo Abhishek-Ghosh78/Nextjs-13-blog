@@ -9,12 +9,6 @@ type Props = {
   };
 };
 
-type ImageName = {
-  id: number;
-  imageName: string;
-  imageUrl: string;
-};
-
 export async function GET(req: Request, { params }: Props) {
   // console.log(params.id);
   try {
@@ -28,8 +22,8 @@ export async function GET(req: Request, { params }: Props) {
       },
     });
     if (!postImages) return;
-    const imageName = postImages.map((postImages) => postImages.image);
-    return NextResponse.json(imageName);
+    const imageUrl = postImages.map((postImages) => postImages.image.imageUrl);
+    return NextResponse.json(imageUrl);
   } catch (error) {
     return NextResponse.json({ error: "Something went wrong" });
   }

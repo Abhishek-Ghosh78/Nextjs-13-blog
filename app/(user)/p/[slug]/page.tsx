@@ -30,7 +30,7 @@ export default function SinglePost({ params }: Props) {
   const [post, setPost] = useState<Post>();
   const [postError, setPostError] = useState("");
   const [error, setError] = useState(false);
-  const [image, setImage] = useState<Image>();
+  const [image, setImage] = useState<any>();
   const [loading, setLoading] = useState(false);
 
   async function getImage(id: number) {
@@ -38,7 +38,7 @@ export default function SinglePost({ params }: Props) {
     try {
       // setLoading(true);
       const { data } = await axios.get(`/api/getPostImage/${id}`);
-      setImage(data[0]);
+      setImage(data);
     } catch (error: any) {
       throw new Error(error);
       setError(true);
@@ -78,7 +78,7 @@ export default function SinglePost({ params }: Props) {
         >
           <div className="w-full lg:w-3/5 p-4">
             <h1 className="md:text-2xl underline m-10 text-lg">{post.title}</h1>
-            <img className="mb-20" src={image.imageUrl} alt="image" />
+            <img className="mb-20" src={image} alt="image" />
             <p
               className="mt-5 text-lg tracking-wide leading-loose"
               dangerouslySetInnerHTML={{ __html: post.content! }}
