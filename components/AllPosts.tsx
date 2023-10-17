@@ -66,7 +66,7 @@ export default function AllPosts() {
   return (
     <div className="flex md:flex-row flex-col justify-center items-center mx-auto p-2">
       {posts?.map((post) => (
-        <div key={post.id} className="lg:w-1/4 md:w-1/2 mx-5">
+        <div key={post.id} className="lg:w-1/4 md:w-1/2 w-full mx-5">
           {images?.map((img) => (
             <div key={img.postId}>
               {post.id == img.postId && post.status == "published" && (
@@ -75,9 +75,9 @@ export default function AllPosts() {
                     <Image
                       src={`https://ztech18.s3.amazonaws.com/images/${img?.imageName}`}
                       alt=""
-                      className="rounded-md shadow-lg shadow-slate-200"
-                      width={500}
-                      height={500}
+                      className="rounded-md shadow-lg shadow-slate-200 w-full"
+                      width={800}
+                      height={800}
                       priority
                     />
                     <h1 className="text-xl md:text-md">

@@ -63,7 +63,7 @@ export default function LatestPosts({ postSlug }: PostProps) {
 
   return (
     <div className=" w-full p-2 lg:ml-40 ml-5 space-y-4">
-      <h1 className="text-md">Latest Posts</h1>
+      <h1 className="text-xl md:text-md">Latest Posts</h1>
       <hr className="m-2 text-black mb-10 w-1/2" />
       {posts?.map((post) => (
         <div key={post.id} className="">

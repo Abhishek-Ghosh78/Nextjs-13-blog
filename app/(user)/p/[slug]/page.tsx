@@ -77,8 +77,8 @@ export default function SinglePost({ params }: Props) {
           className="flex flex-col lg:flex-row justify-center lg:mx-10 p-4 items-center"
         >
           <div className="w-full lg:w-3/5 p-4">
-            <h1 className="md:text-2xl underline m-10 text-lg">{post.title}</h1>
-            <img className="mb-20" src={image} alt="image" />
+            <h1 className="underline m-10 text-2xl">{post.title}</h1>
+            <img className="mb-20 w-full lg:11/12" src={image} alt="image" />
             <p
               className="mt-5 text-lg tracking-wide leading-loose"
               dangerouslySetInnerHTML={{ __html: post.content! }}

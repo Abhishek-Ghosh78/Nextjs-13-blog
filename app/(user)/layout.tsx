@@ -17,9 +17,9 @@ export default function RootLayout({
         <div>
           <Link
             href="/"
-            className="text-sky-700 w-1/5  underline font-bold text-3xl p-2 m-2 flex items-center justify-center mx-auto"
+            className="text-sky-700 w-1/2 underline font-bold text-3xl p-4 m-2 flex items-center justify-center mx-auto"
           >
-            LetsCode
+            LetsCode.com
           </Link>
         </div>
         <Navbar />
