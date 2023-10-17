@@ -9,6 +9,12 @@ type Props = {
   };
 };
 
+type ImageName = {
+  id: number;
+  imageName: string;
+  imageUrl: string;
+};
+
 export async function GET(req: Request, { params }: Props) {
   // console.log(params.id);
   try {
@@ -22,9 +28,11 @@ export async function GET(req: Request, { params }: Props) {
       },
     });
     if (!postImages) return;
-    const imageName = postImages.map((postImages) => postImages.image);
+    const imageName: ImageName[] = postImages.map(
+      (postImages) => postImages.image
+    );
     return NextResponse.json({ imageName });
   } catch (error) {
-    console.error(error);
+    return NextResponse.json({ error: "Something went wrong" });
   }
 }
