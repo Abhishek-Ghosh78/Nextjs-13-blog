@@ -38,7 +38,7 @@ export default function SinglePost({ params }: Props) {
     try {
       // setLoading(true);
       const { data } = await axios.get(`/api/getPostImage/${id}`);
-      setImage(data.imageName[0]);
+      setImage(data[0]);
     } catch (error: any) {
       throw new Error(error);
       setError(true);

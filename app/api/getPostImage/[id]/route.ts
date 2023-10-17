@@ -28,10 +28,8 @@ export async function GET(req: Request, { params }: Props) {
       },
     });
     if (!postImages) return;
-    const imageName: ImageName[] = postImages.map(
-      (postImages) => postImages.image
-    );
-    return NextResponse.json({ imageName });
+    const imageName = postImages.map((postImages) => postImages.image);
+    return NextResponse.json(imageName);
   } catch (error) {
     return NextResponse.json({ error: "Something went wrong" });
   }
