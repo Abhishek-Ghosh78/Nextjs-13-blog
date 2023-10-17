@@ -8,12 +8,10 @@ export async function GET(req: Request) {
   const value = searchParams.get("search");
   // console.log(value);
 
-  if (!value) return;
-
   try {
     const post = await prisma.post.findMany({
       where: {
-        tagName: value,
+        tagName: String(value),
       },
     });
     return NextResponse.json(post);
