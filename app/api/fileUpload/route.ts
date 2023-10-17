@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   const name = file.name + uuidv4();
 
   const uploadParams: any = {
-    Bucket: process.env.AWS_BUCKET as string,
+    Bucket: process.env.BUCKET as string,
     Key: `images/${name}`,
     Body: buffer,
   };
