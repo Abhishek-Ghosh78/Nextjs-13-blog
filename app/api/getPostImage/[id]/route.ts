@@ -21,9 +21,9 @@ export async function GET(req: Request, { params }: Props) {
         image: true,
       },
     });
-
+    if (!postImages) return;
     const imageName = postImages.map((postImages) => postImages.image);
-    return NextResponse.json(imageName);
+    return NextResponse.json({ imageName });
   } catch (error) {
     console.error(error);
   }

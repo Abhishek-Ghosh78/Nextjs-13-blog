@@ -21,7 +21,7 @@ type Post = {
 };
 
 type Image = {
-  id: string;
+  id: number;
   imageName: string;
   imageUrl: string;
 };
@@ -38,7 +38,7 @@ export default function SinglePost({ params }: Props) {
     try {
       // setLoading(true);
       const { data } = await axios.get(`/api/getPostImage/${id}`);
-      setImage(data[0]);
+      setImage(data.imageName[0]);
     } catch (error: any) {
       throw new Error(error);
       setError(true);
@@ -51,7 +51,7 @@ export default function SinglePost({ params }: Props) {
       setLoading(true);
       const { data } = await axios.get(`/api/getPost/${params.slug}`);
       setPost(data.post);
-      getImage(data.post.id);
+      getImage(data.postId);
       setLoading(false);
     } catch (error: any) {
       setPostError(error.message);
