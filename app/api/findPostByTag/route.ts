@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const value = searchParams.get("search");
-  console.log(value);
+  // console.log(value);
 
   if (!value) return;
 

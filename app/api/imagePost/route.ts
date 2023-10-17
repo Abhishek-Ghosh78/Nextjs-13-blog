@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         imageName: imageName,
       },
     });
-    console.log(imagePost);
+    // console.log(imagePost);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);

@@ -35,16 +35,17 @@ export async function POST(req: Request, { params }: Props) {
     const command = new DeleteObjectCommand(uploadParams);
     const result = await s3.send(command);
 
-    if (result) {
-      console.log(`${uploadParams.key} deleted successfully`);
-    } else console.log("Error deleting from s3");
+    // if (result) {
+    //   // console.log(`${uploadParams.key} deleted successfully`);
+    // } else console.log("Error deleting from s3");
 
     return NextResponse.json(
       { message: "Image deleted successfully" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error deleting image", error);
+    throw new Error("Error deleting image");
+    // console.error("Error deleting image", error);
     return NextResponse.json({ error: "Error deleting image" });
   }
 }

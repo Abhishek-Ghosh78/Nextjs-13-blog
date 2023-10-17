@@ -40,12 +40,12 @@ export default function LatestPosts({ postSlug }: PostProps) {
       setError(true);
     }
   }
-  console.log(id);
+  // console.log(id);
   const getImage = async () => {
     setError(false);
     try {
       const { data } = await axios.get(`/api/allPostImage`);
-      console.log(data);
+      // console.log(data);
       setImages(data);
     } catch (error) {
       setError(true);
@@ -70,7 +70,7 @@ export default function LatestPosts({ postSlug }: PostProps) {
           {post.status == "published" && (
             <div>
               {images?.map((img) => (
-                <div>
+                <div key={img.id}>
                   {post.id == img.postId && (
                     <Link
                       href={`/p/${post.slug}`}

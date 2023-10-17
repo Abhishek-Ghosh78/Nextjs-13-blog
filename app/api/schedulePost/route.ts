@@ -17,7 +17,7 @@ export async function POST(req: Request) {
           status: "published",
         },
       });
-      console.log(post);
+      // console.log(post);
       return NextResponse.json({ message: "successfully scheduled the post" });
     });
     console.log(result);

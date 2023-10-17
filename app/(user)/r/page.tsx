@@ -9,7 +9,7 @@ import moment from "moment";
 type Post = {
   id: string;
   title: string;
-  content: string | "";
+  content: string;
   slug: string;
   createdAt: string;
   status: string;
@@ -38,7 +38,7 @@ export default function filterPosts() {
         {}
       );
       setPosts(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError(true);
     }

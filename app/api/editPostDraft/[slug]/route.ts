@@ -23,7 +23,7 @@ export async function POST(req: Request, { params }: Props) {
         status: "draft",
       },
     });
-    console.log(post);
+    // console.log(post);
     return NextResponse.json(post);
   } catch (error) {
     console.error(error);

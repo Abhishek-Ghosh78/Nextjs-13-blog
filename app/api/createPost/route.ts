@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       },
     });
     const postId = post.id;
-    console.log(post);
+    // console.log(post);
     return NextResponse.json({ post, postId });
   } catch (error) {
     console.error("Error creating post", error);

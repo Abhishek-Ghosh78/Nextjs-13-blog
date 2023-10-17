@@ -23,7 +23,7 @@ export async function POST(req: Request, { params }: Props) {
         slug: newSlug,
       },
     });
-    console.log(newPost);
+    // console.log(newPost);
     return NextResponse.json(newPost);
   } catch (error) {
     console.error("Error updating post", error);

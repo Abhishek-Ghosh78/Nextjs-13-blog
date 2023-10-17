@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Alert, Space } from "antd";
 import LatestPosts from "@/components/LatestPosts";
+import { Spin } from "antd";
 
 type Props = {
   params: {
@@ -30,38 +31,51 @@ export default function page({ params }: Props) {
   const [postError, setPostError] = useState("");
   const [error, setError] = useState(false);
   const [image, setImage] = useState<Image>();
+  const [loading, setLoading] = useState(false);
 
   async function getImage(id: number) {
+    setError(false);
     try {
+      // setLoading(true);
       const { data } = await axios.get(`/api/getPostImage/${id}`);
-      // console.log(data[0].imageUrl);
       setImage(data[0]);
     } catch (error: any) {
       throw new Error(error);
+      setError(true);
+    }
+  }
+
+  async function getPost() {
+    setError(false);
+    try {
+      setLoading(true);
+      const { data } = await axios.get(`/api/getPost/${params.slug}`);
+      setPost(data.post);
+      getImage(data.post.id);
+      setLoading(false);
+    } catch (error: any) {
+      setPostError(error.message);
+      setError(true);
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    async function getPost() {
-      try {
-        const { data } = await axios.get(`/api/getPost/${params.slug}`);
-        setPost(data.post);
-        // console.log(data);
-        getImage(data.post.id);
-      } catch (error: any) {
-        setPostError(error.message);
-        console.log(error);
-      }
-    }
     getPost();
   }, []);
 
   if (!post || !image) return;
+  if (loading) {
+    console.log("Loading....");
+  }
 
   return (
     <div>
       {post.status != "draft" && (
-        <div className="flex flex-col lg:flex-row justify-center lg:mx-10 p-4 items-center">
+        <div
+          key={post.id}
+          className="flex flex-col lg:flex-row justify-center lg:mx-10 p-4 items-center"
+        >
           <div className="w-full lg:w-3/5 p-4">
             <h1 className="md:text-2xl underline m-10 text-lg">{post.title}</h1>
             <img className="mb-20" src={image.imageUrl} alt="image" />

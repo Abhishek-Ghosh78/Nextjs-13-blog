@@ -23,7 +23,7 @@ export async function POST(req: Request, { params }: Props) {
         id: Number(id),
       },
     });
-    console.error(deletePost);
+    // console.error(deletePost);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);

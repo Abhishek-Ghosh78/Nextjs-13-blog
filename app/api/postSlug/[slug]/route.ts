@@ -14,7 +14,7 @@ export async function GET(req: Request, { params }: Props) {
     const postSlug = await prisma.post.findUnique({
       where: { slug: params.slug },
     });
-    console.log(postSlug);
+    // console.log(postSlug);
     return NextResponse.json(postSlug);
   } catch (error) {
     console.error("Error fetching blog from slug");

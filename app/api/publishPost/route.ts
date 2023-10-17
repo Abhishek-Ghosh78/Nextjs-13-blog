@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         status: "published",
       },
     });
-    console.log(updatedPost);
+    // console.log(updatedPost);
     return NextResponse.json(updatedPost);
   } catch (error) {
     console.error(error);

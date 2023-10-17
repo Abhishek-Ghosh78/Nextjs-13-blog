@@ -33,7 +33,7 @@ export default function AllPosts() {
   async function getPosts() {
     try {
       const { data } = await axios.get("/api/getPosts");
-      console.log(data);
+      // console.log(data);
       setPosts(data);
     } catch (error: any) {
       throw new Error(error.message);
@@ -42,7 +42,7 @@ export default function AllPosts() {
 
   async function getImages() {
     const { data } = await axios.get("/api/allPostImage");
-    console.log(data);
+    // console.log(data);
     setImages(data);
   }
 
@@ -78,6 +78,7 @@ export default function AllPosts() {
                       className="rounded-md shadow-lg shadow-slate-200"
                       width={500}
                       height={500}
+                      priority
                     />
                     <h1 className="text-xl md:text-md">
                       {truncateContent(post.title, 40)}
