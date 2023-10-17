@@ -18,6 +18,6 @@ export async function GET(req: Request) {
     });
     return NextResponse.json(post);
   } catch (error) {
-    console.error(error);
+    return NextResponse.json({ error: "Something went wrong" });
   }
 }

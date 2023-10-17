@@ -22,7 +22,7 @@ type Props = {
   imageUrl: string;
 };
 
-export default function filterPosts() {
+export default function FilterPosts() {
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
   const [posts, setPosts] = useState<Post[]>();

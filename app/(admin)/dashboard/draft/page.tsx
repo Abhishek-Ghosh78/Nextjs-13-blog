@@ -23,7 +23,7 @@ type Post = {
   createdAt: string;
 };
 
-export default function postDraft() {
+export default function PostDraft() {
   const [posts, setPosts] = useState<Post[] | null>();
   const router = useRouter();
   const [open, setOpen] = useState(false);
