@@ -21,9 +21,11 @@ export async function GET(req: Request, { params }: Props) {
         image: true,
       },
     });
-    if (!postImages) return;
-    const imageUrl = postImages.map((postImages) => postImages.image.imageUrl);
-    return NextResponse.json(imageUrl);
+    // if (!postImages) return;
+    // const imageUrl = postImages.map((postImages) => postImages.image.imageUrl);
+    // return NextResponse.json(imageUrl);
+    // console.log(postImages);
+    return NextResponse.json(postImages[0].image.imageUrl);
   } catch (error) {
     return NextResponse.json({ error: "Something went wrong" });
   }
