@@ -26,7 +26,7 @@ type Image = {
   imageUrl: string;
 };
 
-export default function page({ params }: Props) {
+export default function SinglePost({ params }: Props) {
   const [post, setPost] = useState<Post>();
   const [postError, setPostError] = useState("");
   const [error, setError] = useState(false);
