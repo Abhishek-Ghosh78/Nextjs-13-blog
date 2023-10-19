@@ -77,14 +77,14 @@ export default function SinglePost({ params }: Props) {
           className="flex flex-col lg:flex-row justify-center lg:mx-10 p-4 items-center"
         >
           <div className="w-full lg:w-3/5 p-4">
-            <h1 className="underline m-10 text-2xl">{post.title}</h1>
+            <h1 className="underline m-10 text-4xl">{post.title}</h1>
             <img className="mb-20 w-full lg:11/12" src={image} alt="image" />
-            <p
-              className="mt-5 text-lg tracking-wide leading-loose"
+            <div
+              className="text-2xl leading-loose font-bold"
               dangerouslySetInnerHTML={{ __html: post.content! }}
             />
           </div>
-          <div className="w-full lg:w-1/3  ">
+          <div className="w-full lg:w-1/3" id="content">
             <LatestPosts postSlug={post.slug} />
           </div>
         </div>

@@ -12,6 +12,7 @@ import type { DrawerProps } from "antd/es/drawer";
 import type { RadioChangeEvent } from "antd/es/radio";
 import { FaDraftingCompass } from "react-icons/fa";
 import { IoIosImages } from "react-icons/io";
+import LogoutBtn from "@/components/LogoutBtn";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import type { DrawerProps, RadioChangeEvent } from "antd";
 import { Button, Drawer, Radio, Space } from "antd";
 import { RxHamburgerMenu } from "react-icons/rx";
+import AuthBtn from "./AuthBtn";
 
 type Tag = {
   id: Number;
@@ -16,6 +17,7 @@ export default function Navbar() {
   const [tags, setTags] = useState<Tag[]>([]);
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps["placement"]>("left");
+
   useEffect(() => {
     const getTags = async () => {
       const { data } = await axios.get("/api/allTags");
@@ -51,6 +53,9 @@ export default function Navbar() {
               ))}
             </li>
           </ul>
+          <div className="space-x-2">
+            <AuthBtn />
+          </div>
         </div>
 
         <button className="m-5 md:hidden" onClick={showDrawer}>

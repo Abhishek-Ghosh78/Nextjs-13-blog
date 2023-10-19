@@ -1,6 +1,8 @@
 import Link from "next/link";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
+import { AuthProvider } from "@/context/provider";
+
 export const metadata = {
   title: "LestsCode",
   description: "This is LetsCode.com",
@@ -14,16 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div>
-          <Link
-            href="/"
-            className="text-sky-700 w-1/2 underline font-bold text-3xl p-4 m-2 flex items-center justify-center mx-auto"
-          >
+        <div className="text-sky-700  underline font-bold text-3xl p-4 m-2 flex justify-center items-center">
+          <Link href="/" className="text-center">
             LetsCode.com
           </Link>
         </div>
-        <Navbar />
-        {children}
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
