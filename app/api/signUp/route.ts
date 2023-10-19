@@ -1,6 +1,5 @@
 import userModel from "@/utils/schema";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 import validator from "validator";
 import connectDB from "@/db/connect";
@@ -24,18 +23,9 @@ export async function POST(req: Request) {
       password: hashPassword,
     });
     await userModel.create(user);
-    const token = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET as jwt.Secret,
-      {
-        expiresIn: "1h",
-      }
-    );
+
     console.log("user created successfully");
-    return NextResponse.json(
-      { token, name, email, userId: user.id },
-      { status: 200 }
-    );
+    return NextResponse.json({ name, email, userId: user.id }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: "Error creating user" });
   }
