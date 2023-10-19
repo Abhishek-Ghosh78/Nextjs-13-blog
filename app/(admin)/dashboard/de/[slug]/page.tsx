@@ -55,7 +55,7 @@ export default function DraftEdit({ params }: Props) {
   async function handleUpdatePost() {
     if (!title || !content || !slug) alert("Please make some changes");
     try {
-      const res = await axios.post(`/api/editPostDraft/${params.slug}`, {
+      const res = await axios.post(`/api/editPostDraft/`, {
         title: title,
         content: content,
         postSlug: slug,
