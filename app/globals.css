@@ -12,11 +12,6 @@ pre {
   padding: 10px;
   border: 1px solid #ccc;
   font-family: "Courier New", Courier, monospace;
-  font-size: 20px;
-}
-
-span {
-  font-size: 20px;
 }
 
 strong {
@@ -26,7 +21,6 @@ strong {
 em {
   font-style: italic;
   margin: 10px;
-  font-size: 40px;
 }
 
 u {

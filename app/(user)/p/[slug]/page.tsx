@@ -80,7 +80,7 @@ export default function SinglePost({ params }: Props) {
             <h1 className="underline m-10 text-4xl">{post.title}</h1>
             <img className="mb-20 w-full lg:11/12" src={image} alt="image" />
             <div
-              className="text-2xl leading-loose font-bold"
+              className="leading-loose tracking-wide"
               dangerouslySetInnerHTML={{ __html: post.content! }}
             />
           </div>
